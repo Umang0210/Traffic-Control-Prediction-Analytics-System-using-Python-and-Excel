@@ -1,0 +1,136 @@
+:root {
+  --bg: #0b1220;
+  --panel: #0f172a;
+  --card: #111827;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --accent: #38bdf8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, sans-serif;
+  background: linear-gradient(180deg, #0b1220 0%, #020617 100%);
+  color: var(--text);
+}
+
+/* Page container */
+.page {
+  width: 100%;
+  max-width: 1600px;     /* use more screen real estate */
+  margin: 0 auto;        /* still centered, but wider */
+  padding: 48px 40px;    /* balanced inner spacing */
+}
+
+/* Hero */
+.hero {
+  margin-bottom: 64px;
+}
+
+.hero h1 {
+  font-size: 40px;
+  margin-bottom: 12px;
+}
+
+.hero p {
+  max-width: 720px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* Sections */
+.section {
+  margin-bottom: 72px;
+}
+
+.section h2 {
+  font-size: 26px;
+  margin-bottom: 8px;
+}
+
+.section p {
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(560px, 1fr));
+  gap: 32px;
+}
+
+.section {
+  margin-bottom: 56px;
+}
+
+/* Card */
+.card {
+  background: linear-gradient(180deg, #111827 0%, #0b1220 100%);
+  border-radius: 18px;
+  padding: 22px;
+  overflow: hidden; /* 🔑 prevents chart bleed */
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 25px 50px rgba(56, 189, 248, 0.18);
+}
+
+.card h3 {
+  font-size: 18px;
+  margin-bottom: 14px;
+}
+
+/* Plot wrapper */
+.plot-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.plot-wrapper > div {
+  width: 100% !important;
+}
+
+/* Footer */
+.footer {
+  margin-top: 80px;
+  padding-top: 24px;
+  border-top: 1px solid #1f2937;
+  text-align: center;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* ---------- Animations ---------- */
+
+.fade-section {
+  opacity: 0;
+  transform: translateY(48px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.fade-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.plot-wrapper {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
